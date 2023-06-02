@@ -1,6 +1,7 @@
-import { addUserAC } from 'Redux/users/userActions';
+// import { addUserAC } from 'Redux/users/userActions';
 import { useDispatch } from 'react-redux';
 import { nanoid } from 'nanoid';
+import { addUser } from 'Redux/users/userSlice';
 
 export const AddPage = () => {
   const dispatch = useDispatch();
@@ -11,7 +12,8 @@ export const AddPage = () => {
       name: e.target.elements.name.value,
       age: e.target.elements.age.value,
     };
-    dispatch(addUserAC(newUser));
+    dispatch(addUser(newUser));
+    e.target.reset();
   };
   return (
     <form onSubmit={submitHandle}>
